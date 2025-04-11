@@ -23,6 +23,13 @@
         a:hover {
             text-decoration: underline;
         }
+        #email {
+            cursor: pointer;
+            color: #3498db;
+        }
+        #email:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -55,10 +62,18 @@
             <h2>Connect</h2>
             <ul>
                 <li><a href="https://github.com/ar-mccabe" target="_blank">GitHub</a></li>
-                <li><a href="https://adammccabe.substack.com" target="_blank">Substack</a></li>
                 <li><a href="https://www.linkedin.com/in/a-mccabe/" target="_blank">LinkedIn</a></li>
+                <li><span id="email">adam<!-- prevent crawlers -->.r.<!-- from reading -->.mccabe<!-- this email -->@<!-- easily -->gmail.com</span></li>
             </ul>
         </section>
+        <script>
+            // Simple email protection
+            document.getElementById('email').addEventListener('click', function() {
+                const email = this.innerText.replace(/\s+/g, '');
+                navigator.clipboard.writeText(email);
+                alert('Email copied to clipboard!');
+            });
+        </script>
     </main>
     <footer>
         <p>&copy; 2025 Adam McCabe</p>
